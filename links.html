@@ -91,11 +91,11 @@
         <span id="themeLabel">مظهر داكن</span>
       </button>
 
-      <button id="openCustomizeBtn" type="button" class="glass-card px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 hover:border-emerald-400/50" title="تخصيص وتحميل">
+      <button id="openCustomizeBtn" type="button" class="glass-card px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 hover:border-emerald-400/50" title="تخصيص الصفحة (محمي برقم مرور)">
         <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
         </svg>
-        <span>تخصيص / تحميل</span>
+        <span>تعديل الصفحة</span>
       </button>
     </div>
   </header>
@@ -138,33 +138,13 @@
         <span>مشاركة الصفحة</span>
       </button>
 
-      <button id="downloadHtmlBtn" type="button" class="glass-card px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 hover:border-amber-400/60">
-        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-        </svg>
-        <span>تحميل ملف HTML لموقعك</span>
-      </button>
+
     </div>
 
     <!-- Links List Container -->
     <div id="linksContainer" class="w-full space-y-4"></div>
 
-    <!-- Social Bio Instructions Card -->
-    <div class="glass-card w-full rounded-2xl p-4 mt-8 text-right border border-sky-500/20">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-xs font-bold text-sky-400 flex items-center gap-1.5">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          كيف تضع هذه الصفحة في بايو الفيس والإنستقرام؟
-        </span>
-        <button id="toggleGuideBtn" type="button" class="text-xs text-sky-400 underline font-semibold">عرض الخطوات</button>
-      </div>
-      <div id="guideContent" class="hidden text-xs space-y-2 leading-relaxed pt-2 border-t border-slate-700/40" style="color: var(--text-muted);">
-        <p><strong>الطريقة 1 (مجانية عبر GitHub Pages الخاص بك):</strong> اضغط على زر <strong>"تحميل ملف HTML لموقعك"</strong> بالأعلى، وسمِّ الملف <code class="text-amber-400 font-mono">links.html</code> ثم ارفعه داخل مستودع <code class="text-sky-400 font-mono">moaz-academy</code> على GitHub، وسيعمل معك الرابط المباشر فوراً: <br/><code class="text-emerald-400 font-mono select-all">https://moazelokly568-arch.github.io/moaz-academy/links.html</code></p>
-        <p><strong>الطريقة 2 (عبر Linktree أو Taplink):</strong> يمكنك نسخ الروابط مباشرة من الأزرار أعلاه ولصقها في حسابك على Linktree بضغطة زر.</p>
-      </div>
-    </div>
+
 
   </main>
 
@@ -174,6 +154,37 @@
       جميع الحقوق محفوظة © <span id="footerYear">2026</span> — <strong>Moaz Elokly</strong>
     </p>
   </footer>
+
+  <!-- Password Protection Modal -->
+  <div id="passwordModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4">
+    <div class="glass-card w-full max-w-sm rounded-3xl p-6 text-right border border-slate-700 shadow-2xl">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-700/60">
+        <h3 class="text-base font-bold flex items-center gap-2 text-sky-400">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <span>تأكيد صلاحية التعديل</span>
+        </h3>
+        <button id="closePasswordBtn" type="button" class="p-1.5 rounded-full hover:bg-slate-800 text-slate-400 hover:text-white" aria-label="إغلاق">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <p class="text-xs mb-3 leading-relaxed" style="color: var(--text-muted);">
+        هذه القائمة مخصصة لصاحب الصفحة فقط. يرجى إدخال رقم المرور للمتابعة:
+      </p>
+      <div class="space-y-3">
+        <div>
+          <input id="adminPasswordInput" type="password" dir="ltr" placeholder="أدخل رقم المرور..." class="w-full rounded-xl bg-slate-900/90 border border-slate-700 px-3 py-2.5 text-white text-sm focus:outline-none focus:border-sky-400 text-center" />
+          <p id="passwordErrorMsg" class="hidden text-xs text-rose-400 font-semibold mt-1.5 text-center">رقم المرور غير صحيح! حاول مرة أخرى.</p>
+        </div>
+        <button id="verifyPasswordBtn" type="button" class="w-full py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs transition">
+          فتح قائمة التعديل
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Customize / Add Link Modal -->
   <div id="customizeModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4">
@@ -198,10 +209,19 @@
         </div>
 
         <div class="pt-3 border-t border-slate-700/60">
-          <h3 class="text-xs font-bold text-sky-400 mb-2">إضافة رابط جديد (فيسبوك، تيليجرام، يوتيوب...)</h3>
+          <h3 class="text-xs font-bold text-amber-400 mb-2">إدارة الروابط الحالية (تعديل أو حذف)</h3>
+          <div id="manageLinksList" class="space-y-2 max-h-48 overflow-y-auto pr-1"></div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-700/60">
+          <div class="flex items-center justify-between mb-2">
+            <h3 id="linkFormHeading" class="text-xs font-bold text-sky-400">إضافة رابط جديد (فيسبوك، تيليجرام، يوتيوب...)</h3>
+            <button id="cancelEditLinkBtn" type="button" class="hidden text-xs text-rose-400 hover:underline font-bold">إلغاء التعديل</button>
+          </div>
           <div class="space-y-2.5">
             <input id="newLinkTitle" type="text" placeholder="عنوان الرابط (مثال: صفحتنا على فيسبوك)" class="w-full rounded-xl bg-slate-900/90 border border-slate-700 px-3 py-2 text-white text-xs focus:outline-none focus:border-emerald-400" />
             <input id="newLinkSubtitle" type="text" placeholder="وصف فرعي (مثال: تابع أحدث المنشورات)" class="w-full rounded-xl bg-slate-900/90 border border-slate-700 px-3 py-2 text-white text-xs focus:outline-none focus:border-emerald-400" />
+            <input id="newLinkBadge" type="text" placeholder="الشارة / الوسم (مثال: رسمي، واتساب، يوتيوب)" class="w-full rounded-xl bg-slate-900/90 border border-slate-700 px-3 py-2 text-white text-xs focus:outline-none focus:border-emerald-400" />
             <input id="newLinkUrl" type="url" dir="ltr" placeholder="https://..." class="w-full rounded-xl bg-slate-900/90 border border-slate-700 px-3 py-2 text-white text-xs focus:outline-none focus:border-emerald-400" />
             <button id="addLinkBtn" type="button" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition">
               + إضافة الرابط إلى القائمة
@@ -252,6 +272,7 @@
   <script>
     const state = {
       themeIndex: 0,
+      editingLinkId: null,
       themes: [
         { className: '', label: 'مظهر داكن' },
         { className: 'theme-emerald', label: 'مظهر زمردي' },
@@ -281,6 +302,27 @@
         }
       ]
     };
+
+    function saveStateToStorage() {
+      try {
+        localStorage.setItem('moaz_links_state_v1', JSON.stringify({
+          title: state.title,
+          bio: state.bio,
+          links: state.links
+        }));
+      } catch (e) {}
+    }
+
+    function loadStateFromStorage() {
+      try {
+        const raw = localStorage.getItem('moaz_links_state_v1');
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (parsed.title) state.title = parsed.title;
+        if (parsed.bio) state.bio = parsed.bio;
+        if (Array.isArray(parsed.links)) state.links = parsed.links;
+      } catch (e) {}
+    }
 
     function getIconSvg(type) {
       if (type === 'whatsapp') {
@@ -409,30 +451,124 @@
       document.getElementById('themeLabel').textContent = chosen.label;
     });
 
-    // Guide toggle
-    document.getElementById('toggleGuideBtn').addEventListener('click', () => {
-      const content = document.getElementById('guideContent');
-      const btn = document.getElementById('toggleGuideBtn');
-      const isHidden = content.classList.contains('hidden');
-      if (isHidden) {
-        content.classList.remove('hidden');
-        btn.textContent = 'إخفاء الخطوات';
+    // Password & Customize modal
+    const ADMIN_PASS = 'Moaz2542005#';
+    const passwordModal = document.getElementById('passwordModal');
+    const customizeModal = document.getElementById('customizeModal');
+    const adminPasswordInput = document.getElementById('adminPasswordInput');
+    const passwordErrorMsg = document.getElementById('passwordErrorMsg');
+
+    document.getElementById('openCustomizeBtn').addEventListener('click', () => {
+      adminPasswordInput.value = '';
+      passwordErrorMsg.classList.add('hidden');
+      passwordModal.classList.remove('hidden');
+      passwordModal.classList.add('flex');
+      setTimeout(() => adminPasswordInput.focus(), 50);
+    });
+
+    document.getElementById('closePasswordBtn').addEventListener('click', () => {
+      passwordModal.classList.add('hidden');
+      passwordModal.classList.remove('flex');
+    });
+
+    function resetLinkForm() {
+      state.editingLinkId = null;
+      document.getElementById('newLinkTitle').value = '';
+      document.getElementById('newLinkSubtitle').value = '';
+      document.getElementById('newLinkBadge').value = '';
+      document.getElementById('newLinkUrl').value = '';
+      document.getElementById('linkFormHeading').textContent = 'إضافة رابط جديد (فيسبوك، تيليجرام، يوتيوب...)';
+      document.getElementById('addLinkBtn').textContent = '+ إضافة الرابط إلى القائمة';
+      document.getElementById('addLinkBtn').className = 'w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition';
+      document.getElementById('cancelEditLinkBtn').classList.add('hidden');
+    }
+
+    function renderManageLinks() {
+      const listEl = document.getElementById('manageLinksList');
+      if (!state.links.length) {
+        listEl.innerHTML = '<p class="text-xs text-slate-400 text-center py-2">لا توجد روابط حالياً. أضف رابطاً جديداً بالأسفل.</p>';
+        return;
+      }
+      listEl.innerHTML = state.links.map((item) => `
+        <div class="flex items-center justify-between gap-2 bg-slate-900/90 border border-slate-700/80 rounded-xl px-3 py-2">
+          <div class="min-w-0 flex-1">
+            <p class="text-xs font-bold text-white truncate">${item.title}</p>
+            <p class="text-[11px] text-slate-400 truncate" dir="ltr">${item.url}</p>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <button type="button" data-edit-id="${item.id}" class="edit-link-item-btn px-2.5 py-1.5 rounded-lg bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 text-[11px] font-bold transition">
+              تعديل
+            </button>
+            <button type="button" data-delete-id="${item.id}" class="delete-link-item-btn px-2.5 py-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 text-[11px] font-bold transition">
+              حذف
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      listEl.querySelectorAll('.edit-link-item-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-edit-id');
+          const found = state.links.find((l) => l.id === id);
+          if (!found) return;
+          state.editingLinkId = found.id;
+          document.getElementById('newLinkTitle').value = found.title;
+          document.getElementById('newLinkSubtitle').value = found.subtitle || '';
+          document.getElementById('newLinkBadge').value = found.badge || '';
+          document.getElementById('newLinkUrl').value = found.url;
+          document.getElementById('linkFormHeading').textContent = 'تعديل الرابط المحدد: ' + found.title;
+          document.getElementById('addLinkBtn').textContent = 'حفظ تعديل الرابط';
+          document.getElementById('addLinkBtn').className = 'w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition';
+          document.getElementById('cancelEditLinkBtn').classList.remove('hidden');
+          document.getElementById('newLinkTitle').focus();
+        });
+      });
+
+      listEl.querySelectorAll('.delete-link-item-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-delete-id');
+          state.links = state.links.filter((l) => l.id !== id);
+          if (state.editingLinkId === id) {
+            resetLinkForm();
+          }
+          saveStateToStorage();
+          renderLinks();
+          renderManageLinks();
+          showToast('تم حذف الرابط بنجاح!');
+        });
+      });
+    }
+
+    document.getElementById('cancelEditLinkBtn').addEventListener('click', resetLinkForm);
+
+    function verifyAdminPassword() {
+      if (adminPasswordInput.value === ADMIN_PASS) {
+        passwordModal.classList.add('hidden');
+        passwordModal.classList.remove('flex');
+        document.getElementById('inputTitle').value = state.title;
+        document.getElementById('inputBio').value = state.bio;
+        resetLinkForm();
+        renderManageLinks();
+        customizeModal.classList.remove('hidden');
+        customizeModal.classList.add('flex');
+        showToast('تم التحقق من رقم المرور بنجاح');
       } else {
-        content.classList.add('hidden');
-        btn.textContent = 'عرض الخطوات';
+        passwordErrorMsg.classList.remove('hidden');
+        adminPasswordInput.value = '';
+        adminPasswordInput.focus();
+      }
+    }
+
+    document.getElementById('verifyPasswordBtn').addEventListener('click', verifyAdminPassword);
+    adminPasswordInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        verifyAdminPassword();
       }
     });
 
-    // Customize modal
-    const customizeModal = document.getElementById('customizeModal');
-    document.getElementById('openCustomizeBtn').addEventListener('click', () => {
-      document.getElementById('inputTitle').value = state.title;
-      document.getElementById('inputBio').value = state.bio;
-      customizeModal.classList.remove('hidden');
-      customizeModal.classList.add('flex');
-    });
-
     document.getElementById('closeCustomizeBtn').addEventListener('click', () => {
+      resetLinkForm();
       customizeModal.classList.add('hidden');
       customizeModal.classList.remove('flex');
     });
@@ -442,40 +578,60 @@
       const newBio = document.getElementById('inputBio').value.trim();
       if (newTitle) state.title = newTitle;
       if (newBio) state.bio = newBio;
+      saveStateToStorage();
       renderLinks();
       customizeModal.classList.add('hidden');
       customizeModal.classList.remove('flex');
-      showToast('تم تحديث بيانات الصفحة بنجاح!');
+      showToast('تم حفظ التعديلات بنجاح!');
     });
 
     document.getElementById('addLinkBtn').addEventListener('click', () => {
       const title = document.getElementById('newLinkTitle').value.trim();
       const subtitle = document.getElementById('newLinkSubtitle').value.trim() || 'اضغط لزيارة الرابط';
+      const badge = document.getElementById('newLinkBadge').value.trim() || 'رابط رسمي';
       const url = document.getElementById('newLinkUrl').value.trim();
       if (!title || !url) {
         showToast('يرجى إدخال عنوان الرابط والرابط أولاً');
         return;
       }
-      state.links.push({
-        id: 'custom-' + Date.now(),
-        title,
-        subtitle,
-        url,
-        badge: 'رابط إضافي',
-        theme: 'sky',
-        iconType: 'link'
-      });
-      document.getElementById('newLinkTitle').value = '';
-      document.getElementById('newLinkSubtitle').value = '';
-      document.getElementById('newLinkUrl').value = '';
-      renderLinks();
-      showToast('تمت إضافة الرابط الجديد!');
+
+      if (state.editingLinkId) {
+        const idx = state.links.findIndex((l) => l.id === state.editingLinkId);
+        if (idx !== -1) {
+          state.links[idx].title = title;
+          state.links[idx].subtitle = subtitle;
+          state.links[idx].badge = badge;
+          state.links[idx].url = url;
+        }
+        resetLinkForm();
+        saveStateToStorage();
+        renderLinks();
+        renderManageLinks();
+        showToast('تم تعديل الرابط بنجاح!');
+      } else {
+        const isWhatsapp = url.toLowerCase().includes('whatsapp.com') || url.toLowerCase().includes('wa.me');
+        state.links.push({
+          id: 'custom-' + Date.now(),
+          title,
+          subtitle,
+          url,
+          badge,
+          theme: isWhatsapp ? 'emerald' : 'sky',
+          iconType: isWhatsapp ? 'whatsapp' : 'link'
+        });
+        resetLinkForm();
+        saveStateToStorage();
+        renderLinks();
+        renderManageLinks();
+        showToast('تمت إضافة الرابط الجديد!');
+      }
     });
 
     // Share modal
     const qrModal = document.getElementById('qrModal');
     document.getElementById('sharePageBtn').addEventListener('click', () => {
-      const summaryText = `${state.title}\n\n1- قناة الواتساب:\nhttps://whatsapp.com/channel/0029VacKeb13gvWdJhoTrE0h\n\n2- أكاديمية | ME Learning:\nhttps://moazelokly568-arch.github.io/moaz-academy/`;
+      const linksListText = state.links.map((l, i) => `${i + 1}- ${l.title}:\n${l.url}`).join('\n\n');
+      const summaryText = `${state.title}\n\n${linksListText}`;
       state.activeModalUrl = summaryText;
       document.getElementById('qrModalTitle').textContent = 'نسخ ومشاركة قائمة الروابط';
       document.getElementById('qrModalUrl').textContent = 'https://moazelokly568-arch.github.io/moaz-academy/';
@@ -492,22 +648,10 @@
       copyText(state.activeModalUrl, 'تم نسخ الروابط جاهزة للمشاركة!');
     });
 
-    // Download HTML file
-    document.getElementById('downloadHtmlBtn').addEventListener('click', () => {
-      const htmlSource = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'links.html';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      showToast('تم تحميل ملف links.html بنجاح!');
-    });
+
 
     // Initial render
+    loadStateFromStorage();
     renderLinks();
   </script>
 </body>
